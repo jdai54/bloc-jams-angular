@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- to link the blocJames module to the application, Angular needs to know the root element of the application which is typically the <html> or <body> element. ngApp is a built-in Angular directive. This tells Angular where to bootstrap the defined application -->
+<html ng-app="blocJams">
+<head lang="en">
+  <meta charset="UTF-8">
+  <!-- tailors the <head> content for Bloc Jams Angular -->
+  <title>Bloc Jams Angular</title>
+  <meta name="viewort" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,800,600,700,300">
+  <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" type="text/css" href="styles/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+  <link rel="stylesheet" type="text/css" href="styles/landing.css">
+  <link rel="stylesheet" type="text/css" href="styles/collection.css">
+  <link rel="stylesheet" type="text/css" href="styles/album.css">
+  <link rel="stylesheet" type="text/css" href="styles/player_bar.css">  
+</head>
+<body>
+  {{ 2 + 2 }}
+  <!-- minified version of script for Angular used here denoted by the .min in the file name. Minification removes all the unncessary characters such as spaces and new lines from source code and shortens variable names to the smallest number of letters possible (usually one) in order to reduce the file size. Minified source code should be used in a production application to optomize file size and loading speed --> 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+  <script src="/scripts/app.js"></script>
+</body>
+</html>
