@@ -24,9 +24,11 @@
       <a href="collection.html" class="navbar-link">collection</a>
     </div>      
   </nav>
-  {{ 2 + 2 }}
+  <ui-view></ui-view>
   <!-- minified version of script for Angular used here denoted by the .min in the file name. Minification removes all the unncessary characters such as spaces and new lines from source code and shortens variable names to the smallest number of letters possible (usually one) in order to reduce the file size. Minified source code should be used in a production application to optomize file size and loading speed --> 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+  <!-- UI-Router is an extension of Angular so it must come after the Angular source -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
   <script src="/scripts/app.js"></script>
 </body>
 </html>
