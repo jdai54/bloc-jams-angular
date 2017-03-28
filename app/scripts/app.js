@@ -9,7 +9,7 @@
         enabled: true,
       // remove requirement for specifying the base URL for the application after using html5Mode
         requireBase: false
-    });
+      });
     // stateProvider, a component of UI-Router, will determine a number of properties for a state. For Bloc Jams, we need to configure at least four aspects of state: its name, URL route, controller, and template. stateProvider calls .state() which takes two arguments: stateName and stateConfig
     $stateProvider
       .state('landing', {
@@ -20,7 +20,7 @@
       .state('album', {
         url: '/album',
         templateUrl: '/templates/album.html'
-    ``})
+      })
       .state('collection', {
         url: '/collection',
         templateUrl: '/templates/collection.html'
@@ -29,6 +29,6 @@
   }
   
   angular
-    .module('blocJams', ['ui.router']);
+    .module('blocJams', ['ui.router'])
     .config(config);
 })();
