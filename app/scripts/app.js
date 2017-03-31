@@ -14,6 +14,7 @@
     $stateProvider
       .state('landing', {
         url: '/',
+        controller: 'LandingCtrl as landing',
         templateUrl: '/templates/landing.html'
       // chained calls do not require a semicolon at the end of each call. Otherwise it will get an error.
       })
@@ -23,6 +24,7 @@
       })
       .state('collection', {
         url: '/collection',
+        controller: 'CollectionCtrl as collection',
         templateUrl: '/templates/collection.html'
       });
     
