@@ -1,4 +1,4 @@
-// SongPlayer service as one private attributes: currentBuzzObject, three private functions: setSong, playSong, and getSongIndex, one public attribute: SongPlayer.currentSong and three public methods: SongPlayer.play, SongPlayer.pause, and SongPlayer.previous //
+// SongPlayer service as one private attributes: currentBuzzObject, four private functions: setSong, playSong, stopSong, and getSongIndex, one public attribute: SongPlayer.currentSong and four public methods: SongPlayer.play, SongPlayer.pause, SongPlayer.previous, and SongPlayer.next //
 (function() {
   function SongPlayer(Fixtures) {
     // within the SongPlaye service create a variable "SongPlayer" and set it to an empty object. The service returns this object, making its properties and methods public to the rest of the application //
@@ -43,6 +43,15 @@
       song.playing = true;
     };
     /**
+    * @function stopSong
+    * @desc Stop the currentBuzzObject and set the playing property of the song object to null
+    * @param {Object} song
+    */
+    var stopSong = function(song) {
+      currentBuzzObject.stop();
+      song.playing = null;
+    }
+    /**
     * @function getSongIndex
     * @desc Get the index of a song object
     * @param {Object} song
@@ -85,6 +94,26 @@
       if (currentSongIndex < 0) {
         currentBuzzObject.stop();
         SongPlayer.currentSong.playing = null;
+        // if currentSongIndex is not less than zero, move to the previous song and play it //
+        // if currentSongIndex is not less than zero, move to the previous song and play it //
+      } else {
+        var song = currentAlbum.songs[currentSongIndex];
+        setSong(song);
+        playSong(song);
+      }
+    };
+    /**
+    * @function SongPlayer.next
+    * @desc Go to the next song 
+    */
+    SongPlayer.next = function() {
+      var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+      currentSongIndex++;
+      // if user is on the last song, move to the first song in the album and play it //
+      if (currentSongIndex >= (currentAlbum.songs.length)) {
+        var song = currentAlbum.songs[0];
+        setSong(song);
+        playSong(song);
         // if currentSongIndex is not less than zero, move to the previous song and play it //
       } else {
         var song = currentAlbum.songs[currentSongIndex];
