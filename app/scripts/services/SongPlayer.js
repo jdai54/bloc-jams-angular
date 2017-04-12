@@ -92,8 +92,9 @@
       currentSongIndex--;
       // if user is on the first song, stop the currently playing song and set the value of the currently playing song to the first song //
       if (currentSongIndex < 0) {
-        currentBuzzObject.stop();
-        SongPlayer.currentSong.playing = null;
+        var song = currentAlbum.songs[currentAlbum.songs.length - 1];
+        setSong(song);
+        playSong(song);
         // if currentSongIndex is not less than zero, move to the previous song and play it //
         // if currentSongIndex is not less than zero, move to the previous song and play it //
       } else {
