@@ -30,7 +30,7 @@
           return percent + "%";
         };
         // return the width of the seek bar fill element based on the calculate percent //
-        scope.fillstyle = function() {
+        scope.fillStyle = function() {
           return {width: percentString()};
         };
         // update the seek bar value based on teh seek bar's width and the location of the user's click on the seek bar //
