@@ -33,6 +33,9 @@
         scope.fillStyle = function() {
           return {width: percentString()};
         };
+        scope.thumbStyle = function() {
+          return {left: percentString()};
+        };
         // update the seek bar value based on teh seek bar's width and the location of the user's click on the seek bar //
         scope.onClickSeekBar = function(event) {
           var percent = calculatePercent(seekBar, event);
