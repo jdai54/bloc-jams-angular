@@ -1,6 +1,5 @@
 <div class="seek-bar" ng-click="onClickSeekBar($event)">
   <!-- the ngStyle directive allows us to set CSS styles on an HTML element conditionally. scope does not precede the method name in the view (scope.fillStyle()). The directive knows which attributes and methods are on its scope and can be used in the view -->
   <div class="fill" ng-style="fillStyle()"></div>
-  <div class="thumb" ng-style="thumbStyle()"></div>
-  <div class="thumb" ng-mousedown="trackThumb()"></div>
+  <div class="thumb" ng-mousedown="trackThumb()" ng-style="thumbStyle()"></div>
 </div>
