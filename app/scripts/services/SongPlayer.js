@@ -1,6 +1,7 @@
-// SongPlayer service as one private attributes: currentBuzzObject, four private functions: setSong, playSong, stopSong, and getSongIndex, one public attribute: SongPlayer.currentSong and four public methods: SongPlayer.play, SongPlayer.pause, SongPlayer.previous, and SongPlayer.next //
+// SongPlayer service as one private attributes: currentBuzzObject, four private functions: setSong, playSong, stopSong, and getSongIndex, two public attributes: SongPlayer.currentSong and SongPlayer.currentTime and five public methods: SongPlayer.setCurrentTime, SongPlayer.play, SongPlayer.pause, SongPlayer.previous, and SongPlayer.next //
+// One way to scope a variable to all parts of an application is to use the $rootScope service. Every Angular application has just one $rootScope from which all other scopes inherit //
 (function() {
-  function SongPlayer(Fixtures) {
+  function SongPlayer($rootScope, Fixtures) {
     // within the SongPlaye service create a variable "SongPlayer" and set it to an empty object. The service returns this object, making its properties and methods public to the rest of the application //
     var SongPlayer = {};
     /**
@@ -30,6 +31,12 @@
         formats: ['mp3'],
         preload: true
       });
+      // Use the Buzz library bind() method with the time update audio event. bind() method adds an event listener to the Buzz sound object to listen for a timeupdate event. When the song playback time updates, we execute a callback function. This function sets a value of SongPlayer.currentTime to the current playback time of the current Buzz object using another Buzz method: getTime() which gets the current playback in seconds. Using $apply, we apply the time update change to the $rootScope //
+      currentBuzzObject.bind('timeupdate', function() {
+        $rootScope.$apply(function() {
+          SongPlayer.currentTime = currentBuzzObject.getTime();
+        });
+      });
       
       SongPlayer.currentSong = song;
     };
@@ -50,7 +57,7 @@
     var stopSong = function(song) {
       currentBuzzObject.stop();
       song.playing = null;
-    }
+    };
     /**
     * @function getSongIndex
     * @desc Get the index of a song object
@@ -64,6 +71,11 @@
     * @type {Object}
     */
     SongPlayer.currentSong = null;
+    /**
+    * @desc Current playback time (in seconds) of currently playing song
+    * @type {Number}
+    */
+    SongPlayer.currentTime = null;
     // add a play method to the SongPlayer service. Takes an argument, song, which we'll get from the Album view when a user clicks the play button; the ngRepeat directive used in the Album view template will dictate which song to pass into the function. The play method creates a new Buzz object using the song's audioUrl property and then calls Buzz's own play method n the object //
     SongPlayer.play = function(song) {
       // we use || to tell the function: assign the value of song or the value of SongPlayer.currentSong to the song variable. The first condition occurs when we call the methods from the Album view's song rows, and the second condition occurs when we call the methods from the player bar //
@@ -122,11 +134,21 @@
         playSong(song);
       }
     };
+    /**
+    * @function setCurrentTime
+    * @desc Set current time (in seconds) of currently playing song by using Buzz library's setTime method
+    * @param {Number} time
+    */
+    SongPlayer.setCurrentTime = function(time) {
+      if (currentBuzzObject) {
+        currentBuzzObject.setTime(time);
+      }
+    };
     
     return SongPlayer;
   }
   
   angular
     .module('blocJams')
-    .factory('SongPlayer', ['Fixtures', SongPlayer]);
+    .factory('SongPlayer', ['$rootScope', 'Fixtures', SongPlayer]);
 })();
