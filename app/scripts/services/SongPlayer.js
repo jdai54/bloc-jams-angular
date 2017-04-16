@@ -80,7 +80,7 @@
     * @desc Attribute to hold the value of the volume
     * @type {Number}
     */
-    SongPlayer.volume = null;
+    SongPlayer.volume = 80;
     // add a play method to the SongPlayer service. Takes an argument, song, which we'll get from the Album view when a user clicks the play button; the ngRepeat directive used in the Album view template will dictate which song to pass into the function. The play method creates a new Buzz object using the song's audioUrl property and then calls Buzz's own play method n the object //
     SongPlayer.play = function(song) {
       // we use || to tell the function: assign the value of song or the value of SongPlayer.currentSong to the song variable. The first condition occurs when we call the methods from the Album view's song rows, and the second condition occurs when we call the methods from the player bar //
