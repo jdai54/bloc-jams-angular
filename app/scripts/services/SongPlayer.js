@@ -1,4 +1,4 @@
-// SongPlayer service as one private attributes: currentBuzzObject, four private functions: setSong, playSong, stopSong, and getSongIndex, two public attributes: SongPlayer.currentSong and SongPlayer.currentTime and five public methods: SongPlayer.setCurrentTime, SongPlayer.play, SongPlayer.pause, SongPlayer.previous, and SongPlayer.next //
+// SongPlayer service as one private attributes: currentBuzzObject, four private functions: setSong, playSong, stopSong, and getSongIndex, three public attributes: SongPlayer.currentSong, SongPlayer.currentTime, and SongPlayer.volume and five public methods: SongPlayer.setCurrentTime, SongPlayer.play, SongPlayer.pause, SongPlayer.previous, and SongPlayer.next //
 // One way to scope a variable to all parts of an application is to use the $rootScope service. Every Angular application has just one $rootScope from which all other scopes inherit //
 (function() {
   function SongPlayer($rootScope, Fixtures) {
@@ -76,6 +76,11 @@
     * @type {Number}
     */
     SongPlayer.currentTime = null;
+    /**
+    * @desc Attribute to hold the value of the volume
+    * @type {Number}
+    */
+    SongPlayer.volume = null;
     // add a play method to the SongPlayer service. Takes an argument, song, which we'll get from the Album view when a user clicks the play button; the ngRepeat directive used in the Album view template will dictate which song to pass into the function. The play method creates a new Buzz object using the song's audioUrl property and then calls Buzz's own play method n the object //
     SongPlayer.play = function(song) {
       // we use || to tell the function: assign the value of song or the value of SongPlayer.currentSong to the song variable. The first condition occurs when we call the methods from the Album view's song rows, and the second condition occurs when we call the methods from the player bar //
@@ -144,7 +149,16 @@
         currentBuzzObject.setTime(time);
       }
     };
-    
+    /**
+    * @function 
+    * @desc Set currentn volume of currentlyplaying song by using Buzz Library's setVolume method
+    * @ param {Number} volume
+    */
+    SongPlayer.setVolume = function(volume) {
+      if (currentBuzzObject) {
+        currentBuzzObject.setVolume(volume);
+      }
+    };
     return SongPlayer;
   }
   
