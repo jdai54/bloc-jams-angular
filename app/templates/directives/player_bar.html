@@ -23,8 +23,8 @@
       <div class="seek-control">
         <!-- the on-change attribute takes an expression to execute when we change the value of the seek bar. Here we pass it a callback that sets the time of the song to correspond to the value of the seek bar -->
         <seek-bar value="{{ playerBar.songPlayer.currentTime }}" max="{{ playerBar.songPlayer.currentSong.duration }}" on-change="playerBar.songPlayer.setCurrentTime(value)"></seek-bar>
-        <div class="current-time">{{ playerBar.songPlayer.currentTime }}</div>
-        <div class="total-time">{{ playerBar.songPlayer.currentSong.duration }}</div>
+        <div class="current-time">{{ playerBar.songPlayer.currentTime | timecode }}</div>
+        <div class="total-time">{{ playerBar.songPlayer.currentSong.duration | timecode }}</div>
       </div>
       <h2 class="artist-song-mobile">{{ playerBar.songPlayer.currentSong.title }} - {{ album.albumData.artist }}</h2>
       <h3 class="artist-name">{{ album.albumData.artist }}</h3>
