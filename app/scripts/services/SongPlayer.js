@@ -48,6 +48,7 @@
     var playSong = function(song) {
       currentBuzzObject.play();
       song.playing = true;
+      SongPlayer.setVolume(SongPlayer.volume);
     };
     /**
     * @function stopSong
@@ -157,6 +158,7 @@
     SongPlayer.setVolume = function(volume) {
       if (currentBuzzObject) {
         currentBuzzObject.setVolume(volume);
+        SongPlayer.volume = volume;
       }
     };
     return SongPlayer;
