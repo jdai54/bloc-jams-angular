@@ -2,7 +2,7 @@
 (function() {
   function Fixtures() {
     var Fixtures = {};
-    
+
     var albumPicasso = {
       title: 'The Colors',
       artist: 'Pablo Picasso',
@@ -61,20 +61,20 @@
     };
     // use this service to pull the album data into our app by adding a public getAlbum method. This service is a "Plain Old JavaScript Object" (POJO). Components that inject this ervice as a dependency can access the public methods of the object - that is, the properties and methods that are returned //
     Fixtures.getAlbum = function() {
-      return albumPicasso;
+      return albumPororo;
     };
-    
+
     Fixtures.getCollection = function(numberOfAlbums) {
       var albumArray = [];
       for (i=0; i < numberOfAlbums; i++) {
-        albumArray.push(albumPicasso);
+        albumArray.push(albumPororo);
       }
       return albumArray;
     };
 
     return Fixtures;
   }
-  
+
   angular
     .module('blocJams')
     .factory('Fixtures', Fixtures);

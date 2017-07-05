@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background-image: url(../assets/images/blurred_backgrounds/blur_bg_3.jpg);
+  background-image: url(../assets/images/blurred_backgrounds/background_2.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
@@ -17,7 +17,7 @@ body {
   font-family: 'Open Sans'; /* sets our font to the "Open Sans" typeface */
   color: white;             /* sets the text color to white */
   min-height: 100%;          /* says the height of the body must be, at minimum, 100% of the window */
-  padding-bottom: 200px;  
+  padding-bottom: 200px;
 }
 
 .navbar {
@@ -66,7 +66,7 @@ body {
 
   /* #5 */
 .links-container .navbar-link:hover {
-  color: rgb(233,50,117);
+  color: yellow;
 }
 
 .container {
@@ -77,13 +77,13 @@ body {
 /* Medium and small screens (640px) */
 @media (min-width: 640px) {
   html { font-size: 112%; }
-  
+
   .column {
     float: left;
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
+
   .column.full { width: 100%; }
   .column.two-thirds { width: 66.7%; }
   .column.half { width: 50%; }
@@ -99,7 +99,7 @@ body {
 
 .clearfix::before,
 .clearfix::after {
-  content: " "; 
+  content: " ";
   display: table;
 }
 
