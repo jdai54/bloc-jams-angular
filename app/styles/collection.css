@@ -26,11 +26,11 @@
 .collection-album-container .caption p {
   font-size: 1rem;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.6);
+  color: rblack;
 }
 
 .collection-album-container .caption p a {
-  color: rgba(255, 255, 255, 0.6);
+  color: black;
 }
 
 .colleciton-album-container .caption p a.album-name {
