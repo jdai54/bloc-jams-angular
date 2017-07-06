@@ -42,21 +42,21 @@
       year: '2015',
       albumArtUrl: '/assets/images/album_covers/PororoBand.jpg',
       songs: [
-        { title: 'Opening', duration: '0:38' },
-        { title: 'Rabbit Frog', duration: '3:00' },
-        { title: 'Good Morning', duration: '3:01' },
-        { title: 'Hide and Seek', duration: '3:00' },
-        { title: 'Playing with Numbers', duration: '3:01' },
-        { title: 'Rainbow', duration: '3:01' },
-        { title: 'Naughty Boy', duration: '3:00' },
-        { title: 'Good Child', duration: '3:00' },
-        { title: 'For Sure', duration: '3:00' },
-        { title: 'Ding Dong Dang', duration: '3:00' },
-        { title: 'Para Pam', duration: '3:01' },
-        { title: 'It\'s Alright', duration: '2:59' },
-        { title: 'Mommy Pig, Baby Pig', duration: '3:01' },
-        { title: 'Lovely Baby Bear', duration: '3:00' },
-        { title: 'Ending', duration: '0:28' }
+        { title: 'Opening', duration: 38.00, audioUrl: '/assets/music/pororo_sing_along/Opening' },
+        { title: 'Rabbit Frog', duration: 181.00, audioUrl: '/assets/music/pororo_sing_along/Rabbit frog' },
+        { title: 'Good Morning', duration: 180.00, audioUrl: '/assets/music/pororo_sing_along/Good morning' },
+        { title: 'Hide and Seek', duration: 180.00, audioUrl: '/assets/music/pororo_sing_along/Hide and Seek' },
+        { title: 'Playing with Numbers', duration: 182.00, audioUrl: '/assets/music/pororo_sing_along/Playing with numbers' },
+        { title: 'Rainbow', duration: 180.00, audioUrl: '/assets/music/pororo_sing_along/Rainbow' },
+        { title: 'Naughty Boy', duration: 179.00, audioUrl: '/assets/music/pororo_sing_along/Naughty boy' },
+        { title: 'Good Child', duration: 180.00, audioUrl: '/assets/music/pororo_sing_along/Good Child' },
+        { title: 'For Sure', duration: 179.00, audioUrl: '/assets/music/pororo_sing_along/For Sure' },
+        { title: 'Ding Dong Dang', duration: 180.00, audioUrl: '/assets/music/pororo_sing_along/Ding Dong Dang' },
+        { title: 'Para Pam', duration: 180.00, audioUrl: '/assets/music/pororo_sing_along/Para Pam' },
+        { title: 'It\'s Alright', duration: 180.00, audioUrl: '/assets/music/pororo_sing_along/Its Alright' },
+        { title: 'Mommy Pig, Baby Pig', duration: 180.00, audioUrl: '/assets/music/pororo_sing_along/Mommy Pig Baby Pig' },
+        { title: 'Lovely Baby Bear', duration: 180.00, audioUrl: '/assets/music/pororo_sing_along/Lovely baby bear' },
+        { title: 'Ending', duration: 29.00, audioUrl: '/assets/music/pororo_sing_along/Ending' }
       ]
     };
     // use this service to pull the album data into our app by adding a public getAlbum method. This service is a "Plain Old JavaScript Object" (POJO). Components that inject this ervice as a dependency can access the public methods of the object - that is, the properties and methods that are returned //
