@@ -18,6 +18,12 @@
   },
   "devDependencies": {
     "connect-modrewrite": "^0.7.9",
-    "es5-shim": "^4.0.1"
+    "del": "^3.0.0",
+    "es5-shim": "^4.0.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-hapi": "^0.12.0"
   }
 }
