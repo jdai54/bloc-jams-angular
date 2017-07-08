@@ -7,9 +7,9 @@
     /**
     * @desc stores the album information
     * @type {Object}
-    */ 
+    */
     var currentAlbum = Fixtures.getAlbum();
-    
+
     /**
     * @desc Buzz object audio file
     * @type {Object}
@@ -26,7 +26,7 @@
         currentBuzzObject.stop();
         SongPlayer.currentSong.playing = null;
       }
-      
+
       currentBuzzObject = new buzz.sound(song.audioUrl, {
         formats: ['mp3'],
         preload: true
@@ -37,7 +37,11 @@
           SongPlayer.currentTime = currentBuzzObject.getTime();
         });
       });
-      
+
+      currentBuzzObject.bind('ended', function(event) {
+        SongPlayer.next();
+      });
+
       SongPlayer.currentSong = song;
     };
     /**
@@ -95,7 +99,7 @@
         }
       }
     };
-    // the pause method requires less logic because we don't need to check for various conditions - a song must already be playing before it can be triggered // 
+    // the pause method requires less logic because we don't need to check for various conditions - a song must already be playing before it can be triggered //
     SongPlayer.pause = function(song) {
       song = song || SongPlayer.currentSong;
       currentBuzzObject.pause();
@@ -103,7 +107,7 @@
     };
     /**
     * @function SongPlayer.previous
-    * @desc Go to the previous song 
+    * @desc Go to the previous song
     */
     SongPlayer.previous = function() {
       var currentSongIndex = getSongIndex(SongPlayer.currentSong);
@@ -123,7 +127,7 @@
     };
     /**
     * @function SongPlayer.next
-    * @desc Go to the next song 
+    * @desc Go to the next song
     */
     SongPlayer.next = function() {
       var currentSongIndex = getSongIndex(SongPlayer.currentSong);
@@ -151,7 +155,7 @@
       }
     };
     /**
-    * @function 
+    * @function
     * @desc Set currentn volume of currentlyplaying song by using Buzz Library's setVolume method
     * @ param {Number} volume
     */
@@ -163,7 +167,7 @@
     };
     return SongPlayer;
   }
-  
+
   angular
     .module('blocJams')
     .factory('SongPlayer', ['$rootScope', 'Fixtures', SongPlayer]);
